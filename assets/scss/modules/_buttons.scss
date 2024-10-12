@@ -1,0 +1,58 @@
+.btn{
+    padding: 15px 30px;
+    font-weight: 600;
+    border-radius: 0;
+}
+
+.btn-primary{
+    background-color: $primary;
+    border-color: $primary;
+    color: white;
+    &:hover{
+        background-color: #000;
+        border-color: #000;
+    }
+}
+.btn-secondary{
+    background-color: #930000;
+    border-color: #930000;
+    color: #fff;
+    &:hover{
+        background-color: $yellow;
+        border-color: $yellow;
+        color: #000;
+    }
+}
+
+.btn-sm{
+    padding: 8px 20px;
+}
+
+.noStyle{
+    border: none;
+    outline: none;
+    background: none;
+}
+.btn-icons{
+    font-size: 22px;
+    font-weight: 400;
+    .chevron-animation {
+        display: inline-block;
+        animation: chevronAnimation 0.8s infinite alternate-reverse;
+        i:nth-child(2){
+        margin-right: 16px;
+        }
+    }
+    &.btn-icons-yellow{
+        color: $yellow;
+    }
+}
+
+@keyframes chevronAnimation{
+    0%{
+        transform: translateX(-6px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}

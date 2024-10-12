@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+    font-family: "Noto Sans", sans-serif;
+}
+main{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+a{
+    color: $primary;
+    letter-spacing: 0.5px;
+    font-size: 17px;
+    &:hover{
+        color: $black;
+    }
+}
+
+h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 60px;
+    text-align: center;
+}
+h2{
+    font-weight: 400;
+    color: $primary;
+    font-size: 45px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.subhead{
+    padding-left: 50px;
+    position: relative;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgb(52, 52, 52);
+    &::before{
+        content: "";
+        position: absolute;
+        background-color: rgb(52, 52, 52);;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 2px;
+    }
+}
+
+.hero-wrapper{
+    height: calc(100vh - 102px);
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+    h1{
+        color: white;
+    }
+}
+
+.availability-box{
+    background-color: white;
+    padding: 30px 50px;
+    display: flex;
+    gap: 60px;
+    .title{
+        color: #383838;
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    .availability-date{
+        font-size: 20px;
+    }
+    .people-count{
+        width: 80px;
+        border: none;
+        outline: none;
+        font-size: 20px;
+    }
+}
+
+.room-image{
+    position: relative;
+    overflow: hidden;
+    transform: translateY(250px);
+    transition: all 0.8s ease-in-out;
+    &.active{
+        transform: translateY(0);
+    }
+    .room-details{
+        position: absolute;
+        background-color: white;
+        left: 0;
+        bottom: -50%;
+        padding: 20px;
+        transition: all 0.5s ease-in-out;
+    }
+    &:hover{
+        .room-details{
+            bottom: 0;
+        }
+    }
+}
+
+.room-image img {
+    height: 550px;
+    width: 100%;
+    object-fit: cover;
+    transition: all 0.8s ease-in-out;
+    &:hover{
+      object-position: 0 80%;
+    }
+}
+
+.room-title{
+    color: black;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+.border-bottom-primary{
+    border-bottom: 1px solid rgba($color: $primary, $alpha: 0.3);
+}
+
+.contact-us-box{
+    background-color: white;
+    padding: 40px;
+    border-radius: 5px;
+    max-width: 600px;
+    .form-item{
+        margin-bottom: 20px;
+    }
+    label{
+        font-weight: 700;
+        color: $primary;
+        margin-bottom: 8px;
+    }
+    .form-control{
+        border-radius: 0;
+    }
+}

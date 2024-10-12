@@ -1,0 +1,29 @@
+.fixedWhatsappIcon{
+    position: fixed;
+    inset: auto 80px 80px auto;
+    background: #25D366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-name: pulse;
+	animation-duration: 1.5s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: infinite;
+    a{
+        font-size: 35px;
+        color: white;
+        text-decoration: none;
+    }
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+	}
+	80% {
+		box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+	}
+}

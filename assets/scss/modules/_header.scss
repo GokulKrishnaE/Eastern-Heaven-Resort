@@ -1,0 +1,21 @@
+header{
+    .navbar{
+        padding: 18px 0;
+        color: white;
+    }
+    .navbar-brand{
+        img{
+            max-width: 130px;
+        }
+    }
+    .nav-link{
+        --bs-navbar-active-color: white;
+        --bs-navbar-nav-link-padding-x: 25px;
+        --bs-navbar-nav-link-padding-y: 25px;
+        color: white;
+        font-size: 17px;
+        text-transform: uppercase;
+        &.active{
+        }
+    }
+}
