@@ -28,7 +28,7 @@ $(document).ready(function(){
     slidesPerView: 1,
     pagination: false
   });
-  new Swiper('#notices-slider', {
+  new Swiper('.photos-slider', {
     speed: 400,
     loop: true,
     autoplay: {
@@ -36,9 +36,9 @@ $(document).ready(function(){
       disableOnInteraction: false
     },
     slidesPerView: 1,
-    pagination: {
-      el: ".notice-swiper-pagination",
-    },
+    // pagination: {
+    //   el: ".notice-swiper-pagination",
+    // },
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
@@ -143,6 +143,17 @@ $(document).ajaxStop(function(){
     $('.mobileMenuOverlay').toggleClass('active')
   })
 
+  $('#navbarNav').on('shown.bs.collapse', function () {
+    $('.navbar-overlay').addClass('show')
+    $('body').addClass('overflow-hidden')
+ });
+ 
+ $('#navbarNav').on('hidden.bs.collapse', function () {
+  $('.navbar-overlay').removeClass('show')
+  $('body').removeClass('overflow-hidden')
+ });
+
+
   $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
        $('header').addClass('header-sticky');
@@ -199,27 +210,6 @@ $('#clients-slider').slick({
           ]
 });
 
-
-const sections = document.querySelectorAll('.section');
-
-  const observerOptions = {
-    threshold: 0.1
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      const sectionTitle = entry.target.querySelector('.section-title');
-      if (entry.isIntersecting) {
-        sectionTitle.classList.add('visible');
-      } else {
-        sectionTitle.classList.remove('visible');
-      }
-    });
-  }, observerOptions);
-
-  sections.forEach(section => {
-    observer.observe(section);
-  });
 
   navigation()
 

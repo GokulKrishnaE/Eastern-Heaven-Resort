@@ -19,22 +19,45 @@ a{
     }
 }
 
+@keyframes pulseButton {
+	0% {
+		transform: scale(1);
+	}
+	80% {
+		transform: scale(1.02)
+	}
+}
+
+.pulseButton{
+    animation: pulseButton 1s infinite alternate-reverse;
+}
+
+
 h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 60px;
     text-align: center;
+    @media(max-width:567px){
+        font-size: 35px;
+    }
 }
 h2{
     font-weight: 400;
     color: $primary;
     font-size: 45px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    @media(max-width:567px){
+        font-size: 30px;
+    }
 }
 
 .subhead{
     padding-left: 50px;
     position: relative;
     font-size: 16px;
+    @media(max-width:567px){
+        font-size: 14px;
+    }
     text-transform: uppercase;
     letter-spacing: 2px;
     color: rgb(52, 52, 52);
@@ -47,6 +70,19 @@ h2{
         transform: translateY(-50%);
         width: 30px;
         height: 2px;
+    }
+    &.noBefore{
+        padding-left: 0;
+        &::before{
+            display: none;
+        }
+    }
+}
+
+.mainContainer{
+    padding: 0;
+    @media(min-width:767px){
+        max-width: 100%;
     }
 }
 
@@ -67,6 +103,11 @@ h2{
     padding: 30px 50px;
     display: flex;
     gap: 60px;
+    @media(max-width:767px){
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
     .title{
         color: #383838;
         font-size: 14px;
@@ -114,6 +155,9 @@ h2{
     &:hover{
       object-position: 0 80%;
     }
+    @media(max-width:567px){
+        height: 250px;
+    }
 }
 
 .room-title{
@@ -131,6 +175,9 @@ h2{
 .contact-us-box{
     background-color: white;
     padding: 40px;
+    @media(max-width:567px){
+        padding: 20px;
+    }
     border-radius: 5px;
     max-width: 600px;
     .form-item{
@@ -143,5 +190,42 @@ h2{
     }
     .form-control{
         border-radius: 0;
+    }
+}
+
+.photos-slider-section{
+    .swiper-slide{
+        height: 600px;
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .absolute-container{
+        position: absolute;
+        z-index: 2;
+        top: 120px;
+        left: 50%;
+        transform: translateX(-50%);
+        h2{
+            color: white;
+        }
+        @media(max-width:567px){
+            top: 60px; 
+        }
+    }
+    .swiper-button-next, .swiper-button-prev{
+        background-color: #121e10;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        &::after{
+            font-size: 20px;
+        }
     }
 }
