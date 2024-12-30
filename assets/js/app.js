@@ -141,6 +141,42 @@ $('input[name="paymentMode"]').change(function(){
     }
   });
 
+  $('.button-count:first-child').click(function(){
+    num = parseInt($(this).parents('.count').find('input:text').val());
+    if (num > 1) {
+      $(this).parents('.count').find('input:text').val(num - 1);
+    }
+    if (num == 2) {
+      $('.button-count:first-child').prop('disabled', true);
+    }
+    if (num == 10) {
+      $('.button-count:last-child').prop('disabled', false);
+    }
+  });
+  
+  $('.button-count:last-child').click(function(){
+    num = parseInt($(this).parents('.count').find('input:text').val());
+    if (num < 10) {
+      $(this).parents('.count').find('input:text').val(num + 1);
+    }
+    if (num > 0) {
+      $('.button-count:first-child').prop('disabled', false);
+    }
+    if (num == 9) {
+      $('.button-count:last-child').prop('disabled', true);
+    }
+  });
+
+  $('input[name="payMode"]').change(function(){
+    if($(this).val() === 'upi'){
+      $('.PayQr').show()
+    }
+    else{
+      $('.PayQr').hide()
+    }
+  })
+  
+
   const sections = document.querySelectorAll('.section');
   const bannerSection = document.querySelector('.bannerSec');
 

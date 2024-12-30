@@ -23,7 +23,7 @@
             <div class="container">
                 <h2 class="section-title mb-5">Give Us Your Details</h2>
                 <div class="steps">
-                    <div class="step step1" id="step1">
+                    <div class="step step1 active" id="step1">
                         <div class="stepper">
                             <div class="stepperCount">
                                 <p>Step <span>1</span> of <span>3</span></p>
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step step3 active" id="step3">
+                    <div class="step step3" id="step3">
                         <div class="stepper">
                             <div class="stepperCount">
                                 <p>Step <span>3</span> of <span>3</span></p>
@@ -103,16 +103,22 @@
                         <div class="stepContent">
                             <div class="paymentOptions">
                                 <div class="item">
-                                    <input type="radio" name="pay1" id="pay1">
+                                    <input type="radio" name="payMode" id="pay1" checked>
                                     <label for="pay1">Pay when Check in</label>
                                 </div>
                                 <div class="item">
-                                    <input type="radio" name="pay1" id="pay2">
-                                    <label for="pay2">Cards, Netbanking, Wallet or UPI</label>
+                                    <input type="radio" name="payMode" id="pay2" value="upi">
+                                    <label for="pay2">UPI</label>
                                 </div>
                             </div>
+                            <div class="PayQr" style="display: none;">
+                                <div class="qrCodebox">
+                                    <img src="./assets/images/qr.jpg" alt="" class="img-fluid">
+                                </div>
+                                <p class="mt-4">Please show the transaction reciept when you check in. </p>
+                            </div>
                             <div>
-                                <button class="btn btn-primary mt-4">Go to Payment Page</button>
+                                <a href="booking-confirmation.html" class="btn btn-primary mt-4">done</a>
                             </div>
                         </div>
                     </div>
