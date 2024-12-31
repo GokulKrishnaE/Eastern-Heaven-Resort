@@ -2,6 +2,7 @@ $(document).ready(function(){
     
 $('.datepicker').daterangepicker({
   singleDatePicker: true,
+  autoApply: true,
 });
 
 $('input[name="paymentMode"]').change(function(){
@@ -141,6 +142,12 @@ $('input[name="paymentMode"]').change(function(){
     }
   });
 
+
+  // booking page functions
+
+  localStorage.setItem('deluxCount',6)
+  localStorage.setItem('suitCount',6)
+
   $('.button-count:first-child').click(function(){
     num = parseInt($(this).parents('.count').find('input:text').val());
     if (num > 1) {
@@ -149,23 +156,60 @@ $('input[name="paymentMode"]').change(function(){
     if (num == 2) {
       $('.button-count:first-child').prop('disabled', true);
     }
-    if (num == 10) {
+    if (num <= roomPending) {
       $('.button-count:last-child').prop('disabled', false);
     }
   });
   
   $('.button-count:last-child').click(function(){
     num = parseInt($(this).parents('.count').find('input:text').val());
-    if (num < 10) {
+    roomId = $(this).parents('.count').attr('id')
+    roomPending = localStorage.getItem(roomId)
+    if (num < roomPending) {
       $(this).parents('.count').find('input:text').val(num + 1);
     }
     if (num > 0) {
       $('.button-count:first-child').prop('disabled', false);
     }
-    if (num == 9) {
+    if (num == roomPending-1) {
       $('.button-count:last-child').prop('disabled', true);
     }
   });
+  
+  suitTotal = 0
+  deluxTotal = 0
+  $('.addRoom').click(function(){
+    let parent = $(this).parents('.content')
+    let room = $(this).data('room')
+    let roomCount = parent.find('.number-room').val()
+    
+    if(roomCount>0){
+      $(`#${room}Room`).find('#checkoutRoomCount').text(roomCount)
+      if(room==='delux'){
+        $(`#${room}Room`).find('#checkoutRoomCalc').text(`${roomCount} * 4500`)
+        $(`#${room}Room`).find('#checkoutRoomTotalPrice').text(`${roomCount * 4500}`)
+
+        deluxTotal = roomCount * 4500
+      }
+      if(room==='suit'){
+        $(`#${room}Room`).find('#checkoutRoomCalc').text(`${roomCount} * 7500`)
+        $(`#${room}Room`).find('#checkoutRoomTotalPrice').text(`${roomCount * 7500}`)
+
+        suitTotal = roomCount * 7500
+      }
+      $(`#${room}Room`).show()
+    }
+    $('#grandTotal').text(`${deluxTotal+suitTotal}`)
+    $('.checkoutBox').show()
+  })
+
+  $('.removeRoom').click(function(){
+    roomTotal = parseInt($(this).parents('.room').find('#checkoutRoomTotalPrice').text())
+    curGrandTotal = parseInt($('#grandTotal').text())
+    newGrandTotal= curGrandTotal - roomTotal
+    $('#grandTotal').text(newGrandTotal)
+    $(this).parents('.room').hide()
+  })
 
   $('input[name="payMode"]').change(function(){
     if($(this).val() === 'upi'){
@@ -282,6 +326,7 @@ $(document).ajaxStop(function(){
 
   $('.datepicker').daterangepicker({
   singleDatePicker: true,
+  autoApply: true,
   });
 
   $(".backToTop").click(function () {

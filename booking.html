@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
     <link rel="stylesheet" href="./assets/css/app.css">
 
-    <link rel="shortcut icon" href="./assets/images/logo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
    <div class="wrapper subPage">
@@ -21,50 +21,6 @@
         </div>
         <div class="section">
             <div class="container">
-                <div class="text-center mb-5 pb-5">
-                    <h1 class="sub-title-2">Eastern Heaven Resort</h1>
-                    <p class="f18">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, magni quam dicta placeat delectus modi ullam optio doloribus. Aliquam dolorem laborum fugiat ea optio aut?</p>
-                    <p class="f18">Guhanandapuram Kanthalloor, Kerala, India - 685620</p>
-                    <div class="d-sm-flex gap-5 justify-content-center">
-                        <p class="f18"><i class="fas fa-phone me-3"></i><span>879498498498</span></p>
-                        <p class="f18"><i class="fas fa-envelope me-3"></i><span>test@gmail.com</span></p>
-                    </div>
-                </div>
-
-                <h1 class="sub-title-2 my-3">Our Facilities</h1>
-                <div class="facilities mb-5 pb-5">
-                    <div class="facility">
-                        <div class="icon">
-                            <i class="fas fa-wifi"></i>
-                        </div>
-                        <span class="text">Internet/Wi-Fi</span>
-                    </div>
-                    <div class="facility">
-                        <div class="icon">
-                            <i class="fas fa-car"></i>
-                        </div>
-                        <span class="text">On Premise Parking</span>
-                    </div>
-                    <div class="facility">
-                        <div class="icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <span class="text">24-hour front desk service</span>
-                    </div>
-                    <div class="facility">
-                        <div class="icon">
-                            <i class="fas fa-bowl-food"></i>
-                        </div>
-                        <span class="text">Breakfast</span>
-                    </div>
-                    <div class="facility">
-                        <div class="icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <span class="text">Room Service</span>
-                    </div>
-                </div>
-
                 <h1 class="sub-title-2 mt-5 mb-4">Choose your rooms</h1>
                 <div class="row mt-5 gx-5">
                     <div class="col-lg-6 mb-3 mb-lg-0">
@@ -132,18 +88,19 @@
                                     </label> -->
                                     <div>
                                         <label class="mb-3 fw-bold">Number of rooms</label>
-                                        <div class="count">
+                                        <div class="count" id="deluxCount">
                                             <button class="button-count">-</button>
                                             <input type="text" readonly class="number-room" value="1">
                                             <button class="button-count">+</button>
                                         </div>
+                                        <p class="mt-3 text-danger">Only 6 rooms are remaining</p>
                                     </div>
                                     <p class="roomPrice mt-4 mt-sm-0"><span class="me-2">₹</span>4500 <span class="off">10% off</span></p>
                                 </div>
                                 
                                 <div class="d-sm-flex align-items-center justify-content-end">
                                     
-                                    <a href="booking.html" class="btn noStyle">Add Rooms <i class="fas fa-arrow-right ms-2"></i></a>
+                                    <button class="btn btn-sm btn-primary addRoom" data-room="delux">Add Rooms <i class="fas fa-arrow-right ms-2"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -200,18 +157,19 @@
                                     </label> -->
                                     <div>
                                         <label class="mb-3 fw-bold">Number of rooms</label>
-                                        <div class="count">
+                                        <div class="count" id="suitCount">
                                             <button class="button-count">-</button>
                                             <input type="text" readonly class="number-room" value="1">
                                             <button class="button-count">+</button>
                                         </div>
+                                        <p class="mt-3 text-danger">Only 6 rooms are remaining</p>
                                     </div>
                                     <p class="roomPrice mt-4 mt-sm-0"><span class="me-2">₹</span>7500 <span class="off">10% off</span></p>
                                 </div>
                                 
                                 <div class="d-sm-flex align-items-center justify-content-end">
                                     
-                                    <a href="booking.html" class="btn noStyle">Add Rooms <i class="fas fa-arrow-right ms-2"></i></a>
+                                    <button class="btn btn-sm btn-primary addRoom" data-room="suit">Add Rooms <i class="fas fa-arrow-right ms-2"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -289,44 +247,28 @@
                         </div> -->
                     </div>
                     <div class="col-lg-6">
-                        <div class="checkoutBox">
+                        <div class="checkoutBox" style="display: none;">
                             <h2 class="sub-title-2 mt-0">Checkout</h2>
                             <div class="addedRooms">
-                                <div class="room mb-3">
+                                <div class="room mb-3 hidden" id="deluxRoom">
                                     <button class="btn noStyle removeRoom"><i class="fas fa-xmark"></i></button>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h3 class="roomName">Delux Room<span class="muted ms-2 me-1">x</span>2</h3>
-                                    </div>
-                                    <div class="d-sm-flex align-items-center justify-content-between">
-                                        <div>
-                                            <div class="count">
-                                                <button class="button-count">-</button>
-                                                <input type="text" readonly class="number-room" value="1">
-                                                <button class="button-count">+</button>
-                                            </div>
-                                        </div>
-                                        <p class="roomPrice mt-4 mt-sm-0"><span class="me-2">₹</span>9000</p>
+                                    <div class="">
+                                        <h3 class="roomName mb-3">Delux Room</h3>
+                                        <p class="mb-2"><span class="fw-bold">Number of Rooms: </span><span class="roomCount" id="checkoutRoomCount">2</span></p>
+                                        <p class=""><span class="fw-bold">Price: </span> <span id="checkoutRoomCalc">2 * 4500</span> =<span class="roomPrice mt-4 mt-sm-0" id="checkoutRoomTotalPrice"><span class="me-2">₹</span>9000</span></p>
                                     </div>
                                 </div>
-                                <div class="room">
+                                <div class="room hidden" id="suitRoom">
                                     <button class="btn noStyle removeRoom"><i class="fas fa-xmark"></i></button>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h3 class="roomName">Suite Room<span class="muted ms-2 me-1">x</span>1</h3>
-                                    </div>
-                                    <div class="d-sm-flex align-items-center justify-content-between">
-                                        <div>
-                                            <div class="count">
-                                                <button class="button-count">-</button>
-                                                <input type="text" readonly class="number-room" value="1">
-                                                <button class="button-count">+</button>
-                                            </div>
-                                        </div>
-                                        <p class="roomPrice mt-4 mt-sm-0"><span class="me-2">₹</span>7500</p>
+                                    <div class="">
+                                        <h3 class="roomName mb-3">Delux Room</h3>
+                                        <p class="mb-2"><span class="fw-bold">Number of Rooms: </span><span class="roomCount" id="checkoutRoomCount">2</span></p>
+                                        <p class=""><span class="fw-bold">Price: </span> <span id="checkoutRoomCalc">2 * 4500</span> =<span class="roomPrice mt-4 mt-sm-0" id="checkoutRoomTotalPrice"><span class="me-2">₹</span>9000</span></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="totalBox">
-                                <div class="priceItem">
+                                <!-- <div class="priceItem">
                                     <p>Room Price</p>
                                     <p><span class="me-2">₹</span>16500</p>
                                 </div>
@@ -341,10 +283,10 @@
                                 <div class="priceItem">
                                     <p>Discount</p>
                                     <p class="struck"><span class="me-2">₹</span>1650</p>
-                                </div>
+                                </div> -->
                                 <div class="priceItem grandTotal">
                                     <p>Grand Total</p>
-                                    <p><span class="me-2">₹</span>14850</p>
+                                    <p><span class="me-2">₹</span><span id="grandTotal">14850</span></p>
                                 </div>
                             </div>
                             <a href="checkout.html" class="btn btn-primary mt-5 w-100">Checkout</a>
